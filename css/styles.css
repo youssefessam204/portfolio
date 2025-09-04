@@ -270,7 +270,7 @@ body.light-mode .crossing-icon {
 }
 
 main {
-    padding-top: 80px; /* Adjust based on header height */
+    padding-top: 80px; 
 }
 
 #home {
@@ -327,12 +327,12 @@ main {
     font-size: 2rem;
     font-weight: 500;
     color: var(--text-primary);
-    border-right: 3px solid var(--accent-primary); /* Typing cursor */
+    border-right: 3px solid var(--accent-primary); 
     white-space: nowrap;
     overflow: hidden;
     display: inline-block;
     animation: blink-cursor .75s step-end infinite;
-    min-height: 2.5rem; /* Prevents layout shift */
+    min-height: 2.5rem; 
 }
 
 @keyframes blink-cursor {
@@ -352,11 +352,11 @@ main {
     margin-bottom: 2rem;
 }
 
-/* General Button Styles */
+
 .btn {
     display: inline-block;
     padding: 0.8rem 2rem;
-    border-radius: 50px; /* Rounded corners */
+    border-radius: 50px; 
     text-decoration: none;
     font-weight: bold;
     font-size: 1rem;
@@ -394,10 +394,10 @@ main {
     border-color: var(--accent-primary);
 }
 
-/* Button Icon Animation */
+
 .btn i {
     margin-left: 8px;
-    display: inline-block; /* Ensures transform is applied correctly */
+    display: inline-block; 
     transition: transform 0.3s ease-in-out;
 }
 
@@ -448,7 +448,7 @@ main {
     border-radius: 50%;
     object-fit: cover;
     filter: grayscale(100%);
-    background-color: var(--bg-tertiary); /* Placeholder color if image fails */
+    background-color: var(--bg-tertiary); 
 }
 
 .icon-orbit {
@@ -483,13 +483,13 @@ main {
     to { transform: rotate(-360deg); }
 }
 
-/* Updated orbit icons positioning */
+
 .orbit-icon.icon-1 { top: 20%; left: 88%; transform: translate(-50%, -50%); }
 .orbit-icon.icon-2 { bottom: 50%; left: -5%; }
 .orbit-icon.icon-3 { bottom: -1%; right: -5%; }
 
 
-/* Generic Content Section Styles */
+
 .content-section {
     padding: 6rem 0;
     border-bottom: 1px solid var(--border-secondary);

@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    /*** 🔹 Hamburger Menu Toggle ***/
     const hamburger = document.getElementById('hamburger-menu');
     const navLinks = document.querySelector('.nav-links');
 
@@ -13,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /*** 🔹 Smooth Scrolling ***/
     document.querySelectorAll('.nav-links a[href^="#"]').forEach(link => {
         link.addEventListener('click', e => {
             e.preventDefault();
@@ -22,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    /*** 🔹 Scroll-Up Button with Progress ***/
     const scrollUpBtn = document.getElementById('scrollUpBtn');
     const scrollProgress = document.querySelector('.scroll-progress');
 
@@ -32,10 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const docHeight = document.documentElement.scrollHeight - window.innerHeight;
             const scrollPercent = (scrollTop / docHeight) * 100;
 
-            // Show/hide button
             scrollUpBtn.classList.toggle('show', scrollTop > 300);
 
-            // Update circular progress
             if (scrollProgress) {
                 scrollProgress.style.background = `conic-gradient(#3498db ${scrollPercent}%, #ddd ${scrollPercent}%)`;
             }
@@ -50,7 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
         updateScrollButton();
     }
 
-    /*** 🔹 Scroll Reveal Animations ***/
     const sections = document.querySelectorAll('.content-section');
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
@@ -60,13 +54,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, { threshold: 0.1 });
-
     sections.forEach(section => {
         section.classList.add('hidden-section');
         observer.observe(section);
     });
-
-    /*** 🔹 Typing Effect for Roles ***/
 const roles = [
   "Backend Developer",
   "C# Developer",
@@ -103,25 +94,38 @@ const roles = [
 
     if (roleElement) typeRole();
 
-    /*** 🔹 Contact Form Validation (Email or Phone Required) ***/
-    const contactForm = document.querySelector('.contact-form');
-    if (contactForm) {
-        const emailInput = contactForm.querySelector('input[name="email"]');
-        const phoneInput = contactForm.querySelector('input[name="phone"]');
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+    const emailInput = contactForm.querySelector('input[name="email"]');
+    const phoneInput = contactForm.querySelector('input[name="phone"]');
 
-        contactForm.addEventListener('submit', e => {
-            if (!emailInput.value.trim() && !phoneInput.value.trim()) {
-                e.preventDefault();
-                phoneInput.setCustomValidity('Please provide either your email or phone number.');
-                phoneInput.reportValidity();
-            } else {
-                phoneInput.setCustomValidity('');
-            }
-        });
+    contactForm.addEventListener('submit', e => {
+        e.preventDefault(); 
 
-        [emailInput, phoneInput].forEach(input => {
-            input.addEventListener('input', () => phoneInput.setCustomValidity(''));
-        });
-    }
+        const name = contactForm.name.value.trim();
+        const email = emailInput.value.trim();
+        const phone = phoneInput.value.trim();
+        const message = contactForm.message.value.trim();
+
+        if (!email && !phone) {
+            alert('Please provide either your email or phone number.');
+            return;
+        }
+
+        const subject = encodeURIComponent(`Message from ${name}`);
+        let body = `Name: ${name}\n`;
+        if (email) body += `Email: ${email}\n`;
+        if (phone) body += `Phone: ${phone}\n`;
+        body += `Message:\n${message}`;
+
+        const mailtoLink = `mailto:youssefessam204@gmail.com?subject=${subject}&body=${encodeURIComponent(body)}`;
+        window.location.href = mailtoLink;
+    });
+
+    [emailInput, phoneInput].forEach(input => {
+        input.addEventListener('input', () => input.setCustomValidity(''));
+    });
+}
+
 
 });

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 <body>
 <div class="network-container">
@@ -113,8 +114,6 @@
 <section id="projects" class="container content-section">
   <h2 class="section-title">My Projects</h2>
   <div class="projects-grid">
-
-    <!-- Gym Management System -->
     <div class="project-card">
       <div class="project-image">
         <img src="images/project1.PNG" alt="Gym Management System">
@@ -168,7 +167,7 @@
         <section id="contact" class="container content-section">
             <h2 class="section-title">Contact Me</h2>
             <p class="section-paragraph">I'm currently available for freelance work. If you have a project in mind, feel free to send me a message.</p>
-            <form class="contact-form" action="https://formspree.io/f/mblkvnpg" method="POST">
+            <form class="contact-form" id="contactForm">
                 <div class="form-group"><input type="text" name="name" placeholder="Your Name" required></div>
                 <div class="form-group">
                     <input type="email" name="email" placeholder="Your Email">
